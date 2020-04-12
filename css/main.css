@@ -462,6 +462,11 @@ footer .theme-by {
 .intro-header .page-heading {
   text-align: center;
 }
+
+.page-heading {
+    color: #623ce4;
+}
+
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
   padding: 100px 0;
