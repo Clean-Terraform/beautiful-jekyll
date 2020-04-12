@@ -4,7 +4,7 @@
 title: Clean Terraform
 
 # Short description of your site
-description: Guide to writing clean and scalable Terraform.
+description: A guide to writing clean and scalable Terraform.
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -161,10 +161,10 @@ date_format: "%B %-d, %Y"
 
 # Output options (more information on Jekyll's site)
 timezone: "America/Vancouver"
+permalink: pretty
+paginate: 5
 markdown: kramdown
 highlighter: rouge
-permalink: /:year-:month-:day-:title/
-paginate: 5
 
 kramdown:
   input: GFM
