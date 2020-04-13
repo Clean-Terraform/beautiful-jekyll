@@ -2,14 +2,12 @@
 layout: post
 title: 'Renaming Terraform Resources and Modules'
 date: 2020-04-11 20:10 -0700
-categories: how-to
+categories: guides
 ---
+How do you rename a resource or module in Terrfaorm?
 
-Assume you read [Names in Terraform](/style/2020/04/11/resource-names/) and now you need to change the names of resources or modules in your Terraform configuration, how do you do it without breaking anything?
+If Terraform has not already been applied then the change is easy, do a search and replace. However, if you have already applied Terraform and you can't delete any infrastructure then you need to update the Terraform state.
 
-If Terraform has not already been applied then the change is easy, do a search and replace. However, if you have already applied Terraform and you don't want to delete any infrastructure you need to change the state.
-
-Let's assume you have the Terraform configuration below.
 {% highlight hcl %}
 resource "aws_s3_bucket" "albLogging" {
   ...
@@ -20,7 +18,6 @@ module "api" {
 }
 {% endhighlight %}
 
-And you update it to this.
 {% highlight hcl %}
 # After
 resource "aws_s3_bucket" "alb_logging" {
