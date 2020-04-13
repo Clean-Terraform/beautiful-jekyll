@@ -786,3 +786,7 @@ pre {
   font-style: italic;
   font-size: 16px;
 }
+
+.task-list {
+    list-style-type: none;
+}
