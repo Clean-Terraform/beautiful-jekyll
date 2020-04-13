@@ -32,9 +32,9 @@ module "api_rds_cluster" {
 When you run `terraform plan` Terraform will show that it will delete all of your existing infrastructure and create it with new names. If the infrastructure is not being used then this is acceptable. However, if this is a production environment you cannot do delete and recreate the infrastructure.
 
 To make the changes we need to modify the state file using `terraform mv`.
-{% highlight bash %}
+```bash
 terraform state mv aws_s3_bucket.albLogging aws_s3_bucket.alb_logging
 terraform state mv module.api module.api_rds_cluster
-{% endhighlight %}
+```
 
 Now when you run `terraform plan` again it should show the same output as it did before renaming.
