@@ -4,13 +4,6 @@ title:  "Names in Terraform"
 date:   2020-04-11 19:21:43 -0700
 categories: style
 ---
-## tl;dr
-* Use snake case
-* Do NOT include the resource type in a resource name
-* Do include a reference to what a module does in a module name
-* Do not use abbreviations
-* Use the same name for logically grouped resources (i.e. aws_iam_role, aws_iam_role_policy)
-
 Choosing a name is difficult. Whether the name is for a function, your first born or a Terraform resource there should be a lot of thought that goes into choosing the right name. While it is easier to rename a Terraform resource than a child it is still better to get it rigth the first time.
 
 ## Casing
@@ -31,8 +24,8 @@ resource "aws_s3_bucket" "alb_logging" {
 }
 {% endhighlight %}
 
-## Do NOT include the resource type in a resource name
-Including a reference to the type of resource in the name is repetitive and does not add any clarity for the user, it just makes them type more.
+## When naming resources complete the sentence: Resource X for...
+When naming resources it is helpful to think of what you are creating the resource for when giving in a name. For example, Resource AWS S3 Bucket for ALB Logs.
 
 {% highlight hcl %}
 # Bad
@@ -41,15 +34,15 @@ resource "aws_s3_bucket" "alb_logging_bucket" {
 }
 
 # Good
-resource "aws_s3_bucket" "alb_logging" {
+resource "aws_s3_bucket" "alb_logs" {
   ...
 }
 {% endhighlight %}
 
-## Do include the resource type in a module name
+## When naming modules complete the sentence: Module X creates...
 Modules are a collection of Terraform resources that are logically grouped together. An example may be a module which creates and RDS Cluster with CloudWatch Alarms and IAM permissions. For more information on modules check out the [docs](https://www.terraform.io/docs/configuration/modules.html).
 
-In the case of modules adding a reference to what a module does adds clarity for other users. When naming a module in Terraform include a reference to what the module is for in the name of the resource as a postfix.
+Since modules are a collection of resources it is helpful to indicate what they create in the name.
 
 {% highlight hcl %}
 # Bad
@@ -63,7 +56,7 @@ module "api_rds_cluster" {
 }
 {% endhighlight %}
 
-## Don't use abbreviations or shortening words
+## Don't use abbreviations or shortened words
 {% highlight hcl %}
 # Bad
 resource "aws_iam_role" "ecs_exec" {
@@ -78,6 +71,8 @@ resource "aws_iam_role" "ecs_task_execution" {
 
 
 ## Use the same name for logically grouped resources
+When creating multiple resources that are grouped together giving them all the same name makes it clear to others that they are all related.
+
 {% highlight hcl %}
 # Bad
 data "aws_iam_policy_document" "policy" {
@@ -109,6 +104,15 @@ resource "aws_iam_role_policy" "ecs_task_execution" {
   ...
 }
 {% endhighlight %}
+
+
+## Recap
+- [ ] Use snake case
+- [ ] When naming resources complete the sentence: Resource X for...
+- [ ] When naming modules complete the sentence: Module X creates...
+- [ ] Don't use abbreviations or shortened words
+- [ ] Use the same name for logically grouped resources
+
 
 ## Picked a bad name?
 Don't worry, [Renaming Terraform Resources and Modules](/how-to/2020/04/11/how-to-rename-terraform-resources-and-modules/) is easy!
