@@ -20,7 +20,6 @@ resource "aws_s3_bucket" "albLogging" {
 
 ### New Configuration
 {% highlight hcl %}
-# After
 resource "aws_s3_bucket" "alb_logs" {
   ...
 }
