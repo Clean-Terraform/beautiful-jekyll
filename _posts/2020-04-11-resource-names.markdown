@@ -4,10 +4,10 @@ title:  "Names in Terraform"
 date:   2020-04-11 19:21:43 -0700
 categories: style
 ---
-Choosing a name is difficult. Whether the name is for a function, your first born or a Terraform resource there should be a lot of thought that goes into choosing the right name. While it is easier to rename a Terraform resource than a child it is still better to get it rigth the first time.
+Choosing a name is difficult. Whether the name is for a function, your first born or a Terraform resource there should be a lot of thought that goes into choosing the right name. While it is easier to rename a Terraform resource than a child it is still better to get it right the first time.
 
 ## Casing
-Use [snake case](https://en.wikipedia.org/wiki/Snake_case). Terraform resource types use snake case (i.e. aws_s3_bucket) and that is the covention which should be followed.
+Use [snake case](https://en.wikipedia.org/wiki/Snake_case). Terraform resource types use snake case (i.e. `aws_s3_bucket`) and that is the covention which should be followed.
 {% highlight hcl %}
 # Bad
 resource "aws_s3_bucket" "albLogging" {
@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "alb_logging" {
 }
 {% endhighlight %}
 
-## When naming resources complete the sentence: Resource X for...
+## When naming resources, complete the sentence: Resource X for...
 When naming resources it is helpful to think of what you are creating the resource for when giving in a name. For example, Resource AWS S3 Bucket for ALB Logs.
 
 {% highlight hcl %}
@@ -39,7 +39,7 @@ resource "aws_s3_bucket" "alb_logs" {
 }
 {% endhighlight %}
 
-## When naming modules complete the sentence: Module X creates...
+## When naming modules, complete the sentence: Module X creates...
 Modules are a collection of Terraform resources that are logically grouped together. An example may be a module which creates and RDS Cluster with CloudWatch Alarms and IAM permissions. For more information on modules check out the [docs](https://www.terraform.io/docs/configuration/modules.html).
 
 Since modules are a collection of resources it is helpful to indicate what they create in the name.
