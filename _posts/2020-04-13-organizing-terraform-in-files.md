@@ -6,7 +6,7 @@ date: 2020-04-13 04:54 +0000
 
 A common pattern when writing Terraform configuration is to create files based on what they contain. For example you are probably familiar with a directory structure similar to: 
 
-```
+``` python
 ├── locals.tf
 ├── main.tf
 ├── outputs.tf
@@ -15,7 +15,7 @@ A common pattern when writing Terraform configuration is to create files based o
 └── versions.tf
 ```
 For directories which create infrastructure you may even see a file structure like:
-```
+``` python
 ├── dynamo.tf
 ├── iam.tf
 ├── locals.tf

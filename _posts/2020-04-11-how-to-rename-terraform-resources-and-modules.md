@@ -11,23 +11,23 @@ If Terraform has not already been applied then the change is easy, do a search a
 However, if the Terraform configuration has already been applied and you can't delete any infrastructure then you need to update the Terraform state.
 
 ### Initial Configuration
-{% highlight hcl %}
+``` terraform
 resource "aws_s3_bucket" "albLogging" {
   ...
 }
 
-{% endhighlight %}
+```
 
 ### New Configuration
-{% highlight hcl %}
+``` terraform
 resource "aws_s3_bucket" "alb_logs" {
   ...
 }
-{% endhighlight %}
+```
 
 The result of running `terraform plan` after making this change is:
 
-```
+``` text
 ------------------------------------------------------------------------
 
 An execution plan has been generated and is shown below.
@@ -58,14 +58,14 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 Running apply is a destructive behavior which would result in losing all items in the S3 bucket. To address this issue we can update the Terraform state file with the name change as well.  To make the changes we need to modify the state file using `terraform mv`.
-``` shell
+``` text
 terraform state mv aws_s3_bucket.albLogging aws_s3_bucket.alb_logging
 terraform state mv module.api module.api_rds_cluster
 ```
 
 Now when you run `terraform plan` the output should be no changes.
 
-```
+``` text
 aws_s3_bucket.alb_logs: Refreshing state... [id=alb-logging20200413044401506100000001]
 
 ------------------------------------------------------------------------
