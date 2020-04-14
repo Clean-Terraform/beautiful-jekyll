@@ -790,3 +790,7 @@ pre {
 .task-list {
   list-style-type: none;
 }
+
+code {
+    color: white !important;
+}

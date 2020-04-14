@@ -58,7 +58,7 @@ can't guarantee that exactly these actions will be performed if
 ```
 
 Running apply is a destructive behavior which would result in losing all items in the S3 bucket. To address this issue we can update the Terraform state file with the name change as well.  To make the changes we need to modify the state file using `terraform mv`.
-``` text
+``` bash
 terraform state mv aws_s3_bucket.albLogging aws_s3_bucket.alb_logging
 terraform state mv module.api module.api_rds_cluster
 ```
