@@ -1,0 +1,5 @@
+
+## Accept blocks of inputs (i.e. access_logs { enabled: true})
+## Use sane defaults
+* Be opinionated, overly flexible modules provide little value
+* Pass in nested modules and use composition.
