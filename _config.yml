@@ -20,7 +20,7 @@ url: "https://clean.tf"
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
+  About: "about"
   Resources:
     - Terraform: "https://www.terraform.io/"
     - Learn markdown: "http://www.markdowntutorial.com/"
