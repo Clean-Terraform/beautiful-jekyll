@@ -4,8 +4,6 @@ title: Type Interfaces in Terraform
 date: 2020-09-22 04:06 +0000
 ---
 
-> interface [in-ter-feys] noun - a surface regarded as the common boundary of two bodies, spaces, or phases.
-
 Interfaces are common in many programming languages. They enforce a *contractual obligation* between two entities. Terraform does not have interfaces, however, version 0.13 just released [custom variable validation](https://www.hashicorp.com/blog/custom-variable-validation-in-terraform-0-13). Using the combination of modules and custom variable validation, it is possible to replicate the behavior of an interface. To see what this looks like we are going to create an interface for a label module.
 
 
@@ -82,7 +80,7 @@ You may be wondering, why not just use variable validation?
 There are two main reasons to extract variable validation into a module: sharing validations and module integration.
 
 #### Sharing Validation
-What happens if you need to use the same variable validation in more than one module? You could copy and paste the validation into each module that uses it, however, this is clearly a violation of the DRY principle. Any changes to the validation logic would require remembering which modules implement the validation and updating modifying it in multiple places.
+What happens if you need to use the same variable validation in more than one module? You could copy and paste the validation into each module that uses it, however, this is clearly a violation of the DRY principle. Any changes to the validation logic would require remembering which modules implement the validation and updating it in multiple places.
 
 Moving the validation into a separate module solves this problem and makes it easy to update the validation in the future.
 
